@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# Exclude the folders (and any of their subfolders) below
+RewriteRule ^(images|js|uploads|css)/(.*) $1/$2 [L]
+
+# Rewrite the URL to pass the correct URL variables
+RewriteRule ^index\.html$ index.php
+RewriteRule ^([a-zA-Z0-9-_]+)([\/]?|\.html?)$ index.php?c=$1
+RewriteRule ^([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)([\/]?|\.html?)$ index.php?c=$1&v=$2
+RewriteRule ^([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_\/]+)([\/]?|\.html?)$ index.php?c=$1&v=$2&p=$3
